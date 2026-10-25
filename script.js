@@ -90,8 +90,10 @@
     var message = form.elements.message.value.trim();
     if (message) lines.push("Details: " + message);
 
+    // Navigate rather than window.open: in-app browsers (Instagram, Facebook)
+    // commonly block popups, which would make the button silently do nothing.
     var url = "https://wa.me/" + WHATSAPP_NUMBER + "?text=" + encodeURIComponent(lines.join("\n"));
-    window.open(url, "_blank", "noopener");
+    window.location.href = url;
   });
 
   // ---- Footer year ----

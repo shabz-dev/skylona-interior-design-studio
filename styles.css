@@ -402,6 +402,11 @@ p { margin: 0 0 1em; }
 
   .work-grid { grid-template-columns: repeat(2, 1fr); grid-auto-rows: 220px; }
   .work-wide { grid-column: span 2; }
+
+  /* Touch targets: grow the tap area to >= 44px. The negative margins cancel
+     the padding, so nothing moves visually — only the hit area gets bigger. */
+  a.link-arrow { padding-top: 14px; margin-top: -14px; }
+  .contact-list a { display: inline-block; padding: 9px 0; margin: -9px 0; }
 }
 
 @media (max-width: 560px) {
