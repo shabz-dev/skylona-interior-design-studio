@@ -1,0 +1,14 @@
+# Netlify build settings for the Skylona site (TanStack Start + Nitro).
+#
+# NITRO_PRESET makes the build emit a Netlify deploy:
+#   dist/                          static files (assets, videos, frame sequence)
+#   .netlify/functions-internal/   the server-rendering function
+# Without it the project builds for Cloudflare (.output/) and Netlify has nothing to serve.
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+[build.environment]
+  # Vite 8 needs Node ^20.19 or >=22.12
+  NODE_VERSION = "22"
+  NITRO_PRESET = "netlify"
